@@ -107,3 +107,4 @@ D:\kalbe\Kalbe\bin\Debug\net8.0\AutoMapper.dll
 D:\kalbe\Kalbe\bin\Debug\net8.0\dotenv.net.dll
 D:\kalbe\Kalbe\bin\Debug\net8.0\DotNetEnv.dll
 D:\kalbe\Kalbe\bin\Debug\net8.0\Sprache.dll
+D:\kalbe\Kalbe\obj\Debug\net8.0\Kalbe.sourcelink.json

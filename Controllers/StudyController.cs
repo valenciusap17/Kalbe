@@ -103,7 +103,7 @@ namespace Kalbe.Controllers
         {
             try
             {
-                var result = _repositoryContext.m_study_status.Include(h => h.Studies).AsNoTracking().ToList();
+                var result = _repositoryContext.m_study_status.AsNoTracking().ToList();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -131,7 +131,7 @@ namespace Kalbe.Controllers
         {
             try
             {
-                var result = _repositoryContext.m_study.AsNoTracking();
+                var result = _repositoryContext.m_study.Include(h => h.Molecule).Include(h => h.StudyStatus).AsNoTracking();
                 return Ok(result);
             }
             catch (Exception ex)

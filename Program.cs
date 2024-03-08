@@ -1,4 +1,5 @@
 using Kalbe;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
@@ -21,6 +22,13 @@ builder.Services.AddControllersWithViews()
         options.JsonSerializerOptions.MaxDepth = 64;
         options.JsonSerializerOptions.WriteIndented = true;
     });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:3000") // Your Next.js app's origin
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -30,7 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors ("AllowSpecificOrigin");
 app.UseHttpsRedirection();
 app.MapControllers();
 
