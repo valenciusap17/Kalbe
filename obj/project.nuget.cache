@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Y7vXDSH16bc6jdL0oI13BCAWuJ37KT9txBte9cc8gmIRRNUhfzW2oVr7QmntxPXOqac04jmYyz7alvwxLVQhOw==",
+  "dgSpecHash": "SbN51p8E1+dz7FoRaCf1HBdk4soCoPlCSShZxXfphivVVwC8OtIvDCW4fCJs6eEaXzHWbEjuy6i1U3Zxk+ZJ2w==",
   "success": true,
   "projectFilePath": "D:\\kalbe\\Kalbe\\Kalbe.csproj",
   "expectedPackageFiles": [
@@ -39,6 +39,7 @@
     "C:\\Users\\vapri\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\vapri\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\vapri\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\vapri\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\vapri\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512",
     "C:\\Users\\vapri\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.2\\npgsql.entityframeworkcore.postgresql.8.0.2.nupkg.sha512",
     "C:\\Users\\vapri\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

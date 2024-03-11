@@ -131,7 +131,21 @@ namespace Kalbe.Controllers
         {
             try
             {
-                var result = _repositoryContext.m_study.Include(h => h.Molecule).Include(h => h.StudyStatus).AsNoTracking();
+                var result = _repositoryContext.m_study
+                .Include(h => h.Molecule)
+                .Include(h => h.StudyStatus)
+                .Select( h =>  new StudiesCardDto {
+                    Id = h.Id,
+                    ProtocolTitle = h.ProtocolTitle,
+                    MoleculesName = h.Molecule.MoleculesName,
+                    MolDescription = h.Molecule.MolDescription,
+                    StatusName = h.StudyStatus.StatusName,
+                    CreatedBy = h.CreatedBy,
+                    CreatedDate = h.CreatedDate,
+                    UpdatedBy = h.UpdatedBy,
+                    UpdatedDate = h.UpdatedDate
+                })
+                .AsNoTracking();
                 return Ok(result);
             }
             catch (Exception ex)

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function editStudy(id) {
+            console.log("sayang sayang dung");
+            var StudyId = document.getElementById("studyIdEdit").value;
+            var VersionId = document.getElementById("versionIdEdit").value;
+            var ProtocolTitle = document.getElementById("protocolTitleEdit").value;
+            var ProtocolCode = document.getElementById("protocolCodeEdit").value;
+            var UpdatedBy = document.getElementById("updatedByEdit").value;
+
+            if (!Number.isInteger(Number(VersionId))){
+                event.preventDefault();
+                var errorModal = new bootstrap.Modal(document.getElementById('errorVersionId'));
+                errorModal.show();
+                
+                console.log("gaboleh bang");
+            } else if (StudyId == "" || VersionId == "" || ProtocolTitle == "" | ProtocolCode == "" || UpdatedBy == "" ){
+                event.preventDefault();
+                var errorModal = new bootstrap.Modal(document.getElementById('errorNovalues'));
+                errorModal.show();
+            } else {
+                
+                var dto = {
+                    studyId: StudyId,
+                    versionId: parseInt(VersionId),
+                    protocolTitle: ProtocolTitle,
+                    protocolCode: ProtocolCode,
+                    updatedBy: UpdatedBy,
+                };
+                axios.put(`/api/Study/EditStudy/${id}`, dto)
+                .then(response => {
+                    console.log("Success", response.data);
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.log("error: ", error);
+                });
+                
+            }
+        }
+
+        function handleEditStudies() {
+            var editModal = new bootstrap.Modal(document.getElementById('edit'));
+            editModal.show();
+        }
+
+        function handleDeleteStudies(id) {
+            axios.delete(`/api/Study/DeleteStudy/${id}`)
+                .then(response => {
+                    console.log("Success", response.data);
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.log("error: ", error);
+                });
+            
+        }
+        function notTruncated(index) {
+            var textContainer = document.getElementById(index);
+            if (textContainer.classList.contains("text-truncate")) textContainer.classList.remove("text-truncate");
+            else textContainer.classList.add("text-truncate");
+            console.log(textContainer);
+        }
+        function handleAddStudies() {
+            var studyStatusSelect = document.getElementById("status").value;
+            var moleculeSelect = document.getElementById("moleculeName").value;
+
+            if (studyStatusSelect == "" || moleculeSelect == "") {
+                var testing = document.getElementById("error");
+                testing.style.display = 'block';
+                var errorModal = new bootstrap.Modal(document.getElementById('error'));
+                errorModal.show();
+                console.log(testing);
+            } else {
+                console.log("hello");
+                var errorModal = new bootstrap.Modal(document.getElementById('success'));
+                errorModal.show();
+            }
+        }
+
+        function CreateStudy() {
+            console.log("Create brader");
+            var StudyId = document.getElementById("studyId").value;
+            var VersionId = document.getElementById("versionId").value;
+            var ProtocolTitle = document.getElementById("protocolTitle").value;
+            var ProtocolCode = document.getElementById("protocolCode").value;
+            var CreatedBy = document.getElementById("createdBy").value;
+            var studyStatusSelect = document.getElementById("status").value;
+            var moleculeSelect = document.getElementById("moleculeName").value;
+
+            if (!Number.isInteger(Number(VersionId))){
+                event.preventDefault();
+                var errorModal = new bootstrap.Modal(document.getElementById('errorVersionId'));
+                errorModal.show();
+            } else if (StudyId == "" || VersionId == "" || ProtocolTitle == "" | ProtocolCode == "" || CreatedBy == "" ){
+                event.preventDefault();
+                var errorModal = new bootstrap.Modal(document.getElementById('errorNovalues'));
+                errorModal.show();
+            } else {
+                
+                var dto = {
+                    studyId: StudyId,
+                    versionId: parseInt(VersionId),
+                    protocolTitle: ProtocolTitle,
+                    protocolCode: ProtocolCode,
+                    createdBy: CreatedBy,
+                    moleculesId: moleculeSelect,
+                    studyStatusId: studyStatusSelect
+                };
+                axios.post('/api/Study/PostStudy', dto)
+                .then(response => {
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.log("error: ", error);
+                });
+                
+            }
+
+            
+        }
+    </script>
+</head>
+<body>
+    @RenderBody()
+
+</body>
+</html>

@@ -13,6 +13,9 @@ namespace Kalbe.Mapper
             CreateMap<PostMoleculesDto, m_molecules>();
             CreateMap<PostStudyDto, m_study>();
             CreateMap<EditStudyDto, m_study>();
+
+            CreateMap<StudiesCardDto, HomePageDto>();
+            CreateMap<m_molecules, MoleculesSelectDto>();
         }
     }
 }

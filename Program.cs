@@ -15,6 +15,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
+
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>
     {
@@ -38,9 +41,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseStaticFiles();
 app.UseCors ("AllowSpecificOrigin");
+app.UseRouting();
 app.UseHttpsRedirection();
 app.MapControllers();
+app.UseMvc(routes =>
+{
+    routes.MapRoute
+    (
+        name: "default",
+        template: "{controller=Home}/{action=Index}/{id?}"
+    );
+});
 
 var summaries = new[]
 {

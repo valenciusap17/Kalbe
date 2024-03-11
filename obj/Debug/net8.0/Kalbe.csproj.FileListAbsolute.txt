@@ -108,3 +108,9 @@ D:\kalbe\Kalbe\bin\Debug\net8.0\dotenv.net.dll
 D:\kalbe\Kalbe\bin\Debug\net8.0\DotNetEnv.dll
 D:\kalbe\Kalbe\bin\Debug\net8.0\Sprache.dll
 D:\kalbe\Kalbe\obj\Debug\net8.0\Kalbe.sourcelink.json
+D:\kalbe\Kalbe\obj\Debug\net8.0\Kalbe.RazorAssemblyInfo.cache
+D:\kalbe\Kalbe\obj\Debug\net8.0\Kalbe.RazorAssemblyInfo.cs
+D:\kalbe\Kalbe\bin\Debug\net8.0\package-lock.json
+D:\kalbe\Kalbe\bin\Debug\net8.0\package.json
+D:\kalbe\Kalbe\bin\Debug\net8.0\Kalbe.staticwebassets.runtime.json
+D:\kalbe\Kalbe\bin\Debug\net8.0\Newtonsoft.Json.dll
