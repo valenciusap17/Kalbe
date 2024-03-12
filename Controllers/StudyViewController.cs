@@ -51,5 +51,15 @@ namespace Kalbe.Controllers
             return View("Error");  
         }
 
+        public IActionResult AddStudy()
+        {
+            
+            return View();  
+        }
+
+        public IActionResult AddMolecule() {
+            return View();
+        }
+
     }
 }

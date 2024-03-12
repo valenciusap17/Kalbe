@@ -8,6 +8,56 @@
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        function addMolecule() {
+            var moleculeName = document.getElementById("moleculeName").value;
+            var moleculeDescription = document.getElementById("moleculeDescription").value;
+            if (moleculeDescription == "" || moleculeName == "") {
+                event.preventDefault();
+                var errorModal = new bootstrap.Modal(document.getElementById('errorNoValues'));
+                errorModal.show();
+            } else {
+                var dto = {
+                    moleculesName: moleculeName,
+                    molDescription : moleculeDescription
+                };
+                axios.post(`/api/Study/PostMolecules`, dto)
+                .then(response => {
+                    console.log("Success", response.data);
+                    window.location.href = '../StudyView/Index';
+                })
+                .catch(error => {
+                    console.log("error: ", error);
+                });
+                
+                
+            }
+        }
+
+        function addStudyStatus() {
+            var current = document.getElementById("statusName").value;
+            console.log(current);
+            if (current == "") {
+                event.preventDefault();
+                var errorModal = new bootstrap.Modal(document.getElementById('errorNoValues'));
+                errorModal.show();
+            } else {
+                var dto = {
+                    statusName: current
+                };
+
+                axios.post(`/api/Study/PostStudyStatus`, dto)
+                .then(response => {
+                    console.log("Success", response.data);
+                    window.location.href = '../StudyView/Index';
+                })
+                .catch(error => {
+                    console.log("error: ", error);
+                });
+                
+                
+            }
+        }
+
         function editStudy(id) {
             console.log("sayang sayang dung");
             var StudyId = document.getElementById("studyIdEdit").value;

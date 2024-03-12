@@ -1,0 +1,32 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-column align-items-center gap-3 p" style="height: 100vh; padding-top: 100px;">
+    <div class="fw-bold fs-3">Add your new status name here!</div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Status Name</label>
+        <input type="text" asp-for="createdBy" class="form-control" id="statusName"/>
+
+    </div>
+    <div class="d-flex justify-content-center gap-3">
+        <button type="submit" onclick="addStudyStatus()" class="btn btn-primary ">Submit</button>
+        <a type="submit" href="../StudyView/Index" class="btn btn-primary ">Back</a>
+
+    </div>
+    <div class="modal fade" id="errorNoValues" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Error</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center text-danger">
+                You need to fill all values
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div
+</div>
